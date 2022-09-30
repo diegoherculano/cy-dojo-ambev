@@ -1,8 +1,11 @@
+/// <reference types="cypress" />
+const { user, password } = require("../../fixtures/user.json");
+
 describe("Criar perfil", () => {
   beforeEach(() => {
-    cy.createUser("Douglas Silva Machado", "douglas1111@gmail.com", "123456");
+    cy.deleteUser(user, password);
+    cy.createUser("Douglas Silva Machado", user, password);
     cy.visit("https://conexaoqa.herokuapp.com/login");
-    cy.login("douglas1111@gmail.com", "123456");
   });
 
   it("Deve criar perfil com sucesso - Usando Commands", () => {

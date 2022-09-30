@@ -1,8 +1,9 @@
 /// <reference types="cypress" />
+const { user, password } = require("../../fixtures/user.json");
 
 describe("Tela de Cadastro", () => {
   beforeEach(() => {
-    cy.createUser("Douglas Silva Machado", "douglas1111@gmail.com", "123456");
+    cy.createUser("Douglas Silva Machado", user, password);
     cy.visit("https://conexaoqa.herokuapp.com/cadastrar");
   });
 
@@ -13,7 +14,7 @@ describe("Tela de Cadastro", () => {
 
     cy.get(
       '[data-test="register-email"] > .MuiInputBase-root > .MuiInputBase-input'
-    ).type("douglas1111@gmail.com");
+    ).type(user);
     cy.get(
       '[data-test="register-password"] > .MuiInputBase-root > .MuiInputBase-input'
     ).type("123456");

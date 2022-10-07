@@ -1,4 +1,4 @@
-Cypress.Commands.add("createUser", (name, email, password) => {
+Cypress.Commands.add("createUserApi", (name, email, password) => {
   cy.request({
     method: "POST",
     url: "https://conexaoqa.herokuapp.com/api/users",
@@ -29,7 +29,7 @@ Cypress.Commands.add("loginApi", (email, password) => {
   });
 });
 
-Cypress.Commands.add("deleteUser", (email, password) => {
+Cypress.Commands.add("deleteUserApi", (email, password) => {
   cy.loginApi(email, password).then((res) => {
     if (res.body.jwt) {
       cy.request({

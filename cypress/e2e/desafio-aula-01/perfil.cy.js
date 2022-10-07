@@ -3,8 +3,8 @@ const { user, password } = require("../../fixtures/user.json");
 
 describe("Criar perfil", () => {
   beforeEach(() => {
-    cy.deleteUser(user, password);
-    cy.createUser("Douglas Silva Machado", user, password);
+    cy.deleteUserApi(user, password);
+    cy.createUserApi("Douglas Silva Machado", user, password);
     cy.visit("https://conexaoqa.herokuapp.com/login");
   });
 

@@ -3,7 +3,7 @@ const { user, password } = require("../../fixtures/user.json");
 
 describe("Tela login", () => {
   beforeEach(() => {
-    cy.createUser("Douglas Silva Machado", user, password);
+    cy.createUserApi("Douglas Silva Machado", user, password);
     cy.visit("https://conexaoqa.herokuapp.com/login");
   });
 

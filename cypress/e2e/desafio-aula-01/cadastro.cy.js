@@ -11,7 +11,6 @@ describe("Tela de Cadastro", () => {
     cy.get(
       '[data-test="register-name"] > .MuiInputBase-root > .MuiInputBase-input'
     ).type("Douglas Silva Machado");
-
     cy.get(
       '[data-test="register-email"] > .MuiInputBase-root > .MuiInputBase-input'
     ).type(user);
@@ -22,7 +21,6 @@ describe("Tela de Cadastro", () => {
       '[data-test="register-password2"] > .MuiInputBase-root > .MuiInputBase-input'
     ).type("123456");
     cy.get('[data-test="register-submit"]').click();
-
     cy.get('[data-test="alert"]').should("have.text", "Usuário já registrado");
   });
 });

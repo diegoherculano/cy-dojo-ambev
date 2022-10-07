@@ -23,6 +23,13 @@ describe("Delete API", () => {
         },
       }).then((res) => {
         expect(res.status).to.be.eq(200);
+        expect(res.body).to.deep.contain({
+          company: "Travessos",
+          website: "http://www.google.com",
+          location: "USA",
+          status: "QA Junior",
+          githubusername: "@kwelf",
+        });
       });
     });
   });

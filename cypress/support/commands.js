@@ -31,10 +31,6 @@ Cypress.Commands.add("login", (email, password) => {
     '[data-test="login-password"] > .MuiInputBase-root > .MuiInputBase-input'
   ).type(password);
   cy.get('[data-test="login-submit"]').click();
-  cy.get('[data-test="dashboard-welcome"]').should(
-    "contain",
-    "Bem-vindo Douglas Silva Machado"
-  );
 });
 
 Cypress.Commands.add(

@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-const { user, password } = require("../../fixtures/user.json");
+const { name, user, password } = require("../../fixtures/user.json");
 
 describe("Perfil API", () => {
   before(() => {

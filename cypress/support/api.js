@@ -14,6 +14,70 @@ Cypress.Commands.add("createUserApi", (name, email, password) => {
   });
 });
 
+Cypress.Commands.add(
+  "createUserPerfilApi",
+  ({
+    status,
+    company,
+    website,
+    location,
+    skills,
+    githubusername,
+    bio,
+    twitter,
+    facebook,
+    linkedin,
+    youtube,
+    instagram,
+    medium,
+  }) => {
+    cy.request({
+      method: "POST",
+      url: "https://conexaoqa.herokuapp.com/api/profile",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        status,
+        company,
+        website,
+        location,
+        skills,
+        githubusername,
+        bio,
+        twitter,
+        facebook,
+        linkedin,
+        youtube,
+        instagram,
+        medium,
+      },
+    });
+  }
+);
+
+Cypress.Commands.add(
+  "createUserExperienceApi",
+  ({ title, company, location, from, to, current, description }) => {
+    return cy.request({
+      method: "PUT",
+      url: "https://conexaoqa.herokuapp.com/api/profile/experience",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        title,
+        company,
+        location,
+        from,
+        to,
+        current,
+        description,
+      },
+    });
+  }
+);
+
 Cypress.Commands.add("loginApi", (email, password) => {
   return cy.request({
     method: "POST",
@@ -25,7 +89,6 @@ Cypress.Commands.add("loginApi", (email, password) => {
       email,
       password,
     },
-    failOnStatusCode: false,
   });
 });
 

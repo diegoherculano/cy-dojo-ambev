@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
-const { user, password } = require("../../fixtures/user.json");
+const { name, user, password } = require("../../fixtures/user.json");
 
 describe("Tela de Cadastro", () => {
   beforeEach(() => {
-    cy.createUserApi("Douglas Silva Machado", user, password);
+    cy.createUserApi(name, user, password);
     cy.visit("https://conexaoqa.herokuapp.com/cadastrar");
   });
 

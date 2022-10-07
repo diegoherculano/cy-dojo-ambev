@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
-const { user, password } = require("../../fixtures/user.json");
+const { name, user, password } = require("../../fixtures/user.json");
 
 describe("Criar perfil", () => {
   beforeEach(() => {
     cy.deleteUserApi(user, password);
-    cy.createUserApi("Douglas Silva Machado", user, password);
+    cy.createUserApi(name, user, password);
     cy.visit("https://conexaoqa.herokuapp.com/login");
   });
 
@@ -30,7 +30,7 @@ describe("Criar perfil", () => {
     cy.get('[data-test="profile-submit"]').click();
     cy.get('[data-test="dashboard-welcome"]').should(
       "contain",
-      "Bem-vindo Douglas Silva Machado"
+      `Bem-vindo ${name}`
     );
   });
 });

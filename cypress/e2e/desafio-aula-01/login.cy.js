@@ -1,9 +1,9 @@
 /// <reference types="cypress" />
-const { user, password } = require("../../fixtures/user.json");
+const { name, user, password } = require("../../fixtures/user.json");
 
 describe("Tela login", () => {
   beforeEach(() => {
-    cy.createUserApi("Douglas Silva Machado", user, password);
+    cy.createUserApi(name, user, password);
     cy.visit("https://conexaoqa.herokuapp.com/login");
   });
 
@@ -17,7 +17,7 @@ describe("Tela login", () => {
     cy.get('[data-test="login-submit"]').click();
     cy.get('[data-test="dashboard-welcome"]').should(
       "contain",
-      "Bem-vindo Douglas Silva Machado"
+      `Bem-vindo ${name}`
     );
   });
 });

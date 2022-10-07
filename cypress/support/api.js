@@ -107,3 +107,25 @@ Cypress.Commands.add("deleteUserApi", (email, password) => {
     }
   });
 });
+
+Cypress.Commands.add(
+  "createUserEducation",
+  ({ school, degree, fieldofstudy, from, to, current, description }) => {
+    return cy.request({
+      method: "PUT",
+      url: "https://conexaoqa.herokuapp.com/api/profile/education",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: {
+        school,
+        degree,
+        fieldofstudy,
+        from,
+        to,
+        current,
+        description,
+      },
+    });
+  }
+);

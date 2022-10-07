@@ -2,7 +2,7 @@
 const { name, user, password } = require("../../fixtures/user.json");
 
 describe("Perfil API", () => {
-  before(() => {
+  beforeEach(() => {
     cy.loginApi(user, password);
   });
 

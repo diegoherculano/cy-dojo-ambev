@@ -4,7 +4,7 @@ const bodyCreateUserExperience = require("../../fixtures/createUserExperience.js
 const bodyCreateUserPerfil = require("../../fixtures/createUserPerfil.json");
 
 describe("Delete API", () => {
-  before(() => {
+  beforeEach(() => {
     cy.deleteUserApi(user, password);
     cy.createUserApi(name, user, password);
     cy.createUserPerfilApi(bodyCreateUserPerfil);
